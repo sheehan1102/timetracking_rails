@@ -5,3 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+puts "Running seed file..."
+
+Project.destroy_all
+
+puts "All projects destroyed."
+
+(1..5).each do |i|
+	Project.create!(
+		title: "Ironhack number #{i}",
+		priority: rand(1..3),
+		description: "This is the description for #{i}"
+	)
+	Project.create!(
+		title: "Personal number #{i}",
+		priority: rand(1..3)
+	)
+end

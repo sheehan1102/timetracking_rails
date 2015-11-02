@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get "/"       => "sites#home"
-  get "/about"  => "sites#about"
+  get "/"               => "sites#home"
+  get "/contact"        => "sites#contact"
+  get "/projects"       => "projects#index"
+  get "/projects/:id"   => "projects#show" # params[:id]
 end

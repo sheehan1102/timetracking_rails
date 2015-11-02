@@ -1,0 +1,10 @@
+<h1>All the projects</h1>
+
+<% @projects.each do |p| %>
+	<p>
+		<%= p.priority %>: <%= p.title %>, <%= p.id %>
+		<% if !p.description.nil? %>
+			 - <%= p.description %>
+		<% end %>
+	</p>
+<% end %>
