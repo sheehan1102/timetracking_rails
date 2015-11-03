@@ -1,0 +1,25 @@
+<h1>Create a new project:</h1>
+
+<%= form_for @project do |f| %>
+	<div>
+		<%= f.label :title, value: "Title:" %>
+	</div>
+	<div>
+		<%= f.text_field :title %>
+	</div>
+	<div>
+		<%= f.label :description, value: "Description:" %>
+	</div>
+	<div>
+		<%= f.text_area :description %>
+	</div>
+	<div>
+		<%= f.label :priority, value: "Priority:" %>
+	</div>
+	<div>
+		<%= f.number_field :priority %>
+	</div>
+	<div>
+		<%= f.submit "Create project" %>
+	</div>
+<% end %>
