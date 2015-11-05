@@ -1,10 +1,18 @@
 <h1>All the projects</h1>
+<h5><%= link_to "Add project", new_project_path %></h5>
 
-<% @projects.each do |p| %>
-	<p>
-		<%= p.priority %>: <%= p.title %>, <%= p.id %>
-		<% if !p.description.nil? %>
-			 - <%= p.description %>
-		<% end %>
-	</p>
-<% end %>
+<%= flash_message %>
+
+<ul>
+	<% @projects.each do |p| %>
+		<li>
+			<%= p.priority %>: <%= link_to p.title, p %>
+			<% if !p.description.nil? %>
+				<%= " | #{p.description}" %>
+			<% end %>
+			 | <%= link_to "see entries", project_entries_path(p) %>
+			 | <%= link_to "add entry", new_project_entry_path(p) %>
+			 | <%= link_to "delete", project_path(p), method: :delete %>
+		</li>
+	<% end %>
+</ul>

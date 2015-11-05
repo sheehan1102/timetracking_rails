@@ -1,2 +1,3 @@
 <h1><%= @project.title %></h1>
 <p><%= @project.description unless @project.description.nil? %></p>
+<p><%= link_to "See entries for this project", project_entries_path(@project) %> | <%= link_to "edit", edit_project_path(@project) %>

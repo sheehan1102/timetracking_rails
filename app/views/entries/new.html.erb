@@ -1,0 +1,12 @@
+<h3>Create new entry</h3>
+
+<%= flash_message %>
+
+<%= form_for [@project, @entry] do |f| %>
+	<%= f.number_field :hours, placeholder: "Hours" %>
+	<%= f.number_field :minutes, placeholder: "Minutes" %>
+	<%= f.date_field :date %>
+	<%= f.text_area :comment, placeholder: "Comment" %>
+
+	<%= f.submit "Add my work!" %>
+<% end %>

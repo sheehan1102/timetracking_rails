@@ -9,6 +9,7 @@
 puts "Running seed file..."
 
 Project.destroy_all
+Entry.destroy_all
 
 puts "All projects destroyed."
 
@@ -23,3 +24,13 @@ puts "All projects destroyed."
 		priority: rand(1..3)
 	)
 end
+
+puts "New projects created"
+
+Project.all.each do |p|
+	(1..5).each do |i|
+		p.entries.create(hours: i, minutes: 35, date: Date.today)
+	end
+end
+
+puts "New entries created"

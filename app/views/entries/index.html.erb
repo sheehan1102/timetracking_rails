@@ -1,0 +1,14 @@
+<h1>Title: <%= @project.title %></h1>
+<p>Total hours: <%= @project.total_hours %></p>
+<h5>Entries | <%= link_to "add entry", new_project_entry_path(@project) %></h5>
+
+<%= flash_message %>
+
+<ul>
+	<% @project.entries.each do |entry| %>
+		<li>
+			<%= "#{entry.hours} h, #{entry.minutes} min. Date: #{entry.date.strftime('%e %b %Y')}" %>
+			<%= " | #{entry.comment}" unless entry.comment.nil? %> | <%= link_to "edit", edit_entry_path(entry) %> | <%= link_to "delete", entry_path(entry), method: :delete %>
+		</li>
+	<% end %>
+</ul>
